@@ -4,6 +4,7 @@
  */
 package Proyecto_2;
 import EDD.*;
+import javaapplication7.*;
 
 /**
  *
@@ -16,23 +17,18 @@ public class Proyecto_2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        minHeap ColaPrioridad = new minHeap();
-        ColaPrioridad.insert(2);
-        ColaPrioridad.insert(4);
-        ColaPrioridad.insert(6);
-        ColaPrioridad.insert(8);
-        ColaPrioridad.insert(10);
-        
-        ColaPrioridad.sort();
-        
-        Comparable elim = ColaPrioridad.getRoot();
-        
-        elim.toString();
-        
-        System.out.println("\nSe elimino el elemento " + elim + "\n");
-        
-        ColaPrioridad.sort();
-        
+        Documento doc = new Documento("No se", "pdf", 2);
+        Documento doc2 = new Documento("No se2", "pdf", 15);
+        Documento doc3 = new Documento("No se3", "pdf", 6);
+
+        Heap Cola = new Heap();
+        Cola.insert(doc);
+        Cola.insert(doc2);
+        Cola.insert(doc3);
+        Cola.show();
+        System.out.println("");
+        System.out.println("Se eliminó el documento " + Cola.getRoot().getNombre());
+        Cola.show();
     }
     
 }

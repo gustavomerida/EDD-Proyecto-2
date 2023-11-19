@@ -8,23 +8,31 @@ package javaapplication7;
  *
  * @author 
  */
-public class Documento {
+public class Documento{
    private String nombre;
    private String tipo;
    private boolean queued;
+   private long tiempo;
    
-   public Documento(String x, String y){
+   public Documento(String x, String y, long t){
        this.nombre = x;
        this.tipo = y;
        this.queued = false;
+       this.tiempo = t;
    }
-
+   
     /**
      * @return the nombre
      */
     public String getNombre() {
         return nombre;
     }
+   
+    public int compareTo(Documento otro) {
+        return Long.compare(this.getTiempo(), otro.getTiempo());
+    }
+    
+
 
     /**
      * @param nombre the nombre to set
@@ -60,4 +68,18 @@ public class Documento {
     public void setQueued(boolean queue) {
         this.queued = queue;
     }
+
+    /**
+     * @return the tiempo
+     */
+    public long getTiempo() {
+        return tiempo;
+    }
+
+    /**
+     * @param tiempo the tiempo to set
+     */
+    public void setTiempo(long tiempo) {
+        this.tiempo = tiempo;
+    } 
 }
