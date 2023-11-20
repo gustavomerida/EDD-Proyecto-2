@@ -11,11 +11,13 @@ package javaapplication7;
 public class Nodo<T> {
     private Nodo<T>  next;
     private Nodo<T>  prev;
+    private Nodo<T> user;
     private T element;
     
     public Nodo(T element) {
         this.next = null;
         this.prev = null;
+        this.user = null;
         this.element = element;
     }    
 
@@ -59,5 +61,19 @@ public class Nodo<T> {
      */
     public void setElement(T element) {
         this.element = element;
+    }
+
+    /**
+     * @return the user
+     */
+    public Nodo<T> getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(Nodo<T> user) {
+        this.user = user;
     }
 }
