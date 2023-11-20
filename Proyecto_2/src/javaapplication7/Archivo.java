@@ -5,6 +5,7 @@
 package javaapplication7;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class Archivo {
     private static String linea;
     private static String partes[] = null;
     
-    public static java.io.File choose_archivo() {
+    public static File choose_archivo() {
 //        String archivo = "";
         Scanner entrada = null;
         JFileChooser fileChooser = new JFileChooser();
@@ -49,7 +50,7 @@ public class Archivo {
         return null;
         }
     
-    public static List leer_archivo(java.io.File f) throws FileNotFoundException, IOException {
+    public static List leer_archivo(File f) throws FileNotFoundException, IOException {
         List Usuarios = new List();
         try{
             lector = new BufferedReader(new FileReader(f));
