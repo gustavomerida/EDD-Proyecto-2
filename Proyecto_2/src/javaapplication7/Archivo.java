@@ -58,8 +58,10 @@ public class Archivo {
                 partes = linea.split(",");
                 String x = partes[0];
                 String y = partes[1];
-                Usuario user = new Usuario(x, y);
-                Usuarios.insertar_al_final(user);
+                if (!"usuario".equals(partes[0])){
+                    Usuario user = new Usuario(x, y);
+                    Usuarios.insertar_al_final(user);
+                }
             }
         }catch (FileNotFoundException e){
             JOptionPane.showMessageDialog(null,e);
