@@ -4,6 +4,7 @@
  */
 package Proyecto_2;
 import EDD.*;
+import GUI.*;
 import javaapplication7.*;
 
 /**
@@ -17,18 +18,25 @@ public class Proyecto_2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Documento doc = new Documento("No se", "pdf", 2);
-        Documento doc2 = new Documento("No se2", "pdf", 15);
-        Documento doc3 = new Documento("No se3", "pdf", 6);
-
-        Heap Cola = new Heap();
-        Cola.insert(doc);
-        Cola.insert(doc2);
-        Cola.insert(doc3);
-        Cola.show();
-        System.out.println("");
-        System.out.println("Se eliminó el documento " + Cola.getRoot().getNombre());
-        Cola.show();
+        long startTime = System.nanoTime();
+//        Documento doc = new Documento("No se", "pdf", 2);
+//        Documento doc2 = new Documento("No se2", "pdf", 15);
+//        Documento doc3 = new Documento("No se3", "pdf", 6);
+//
+//        Heap Cola = new Heap();
+//        Cola.insert(doc);
+//        Cola.insert(doc2);
+//        Cola.insert(doc3);
+//        Cola.show();
+//        System.out.println("");
+//        System.out.println("Se eliminó el documento " + Cola.getRoot().getNombre());
+//        Cola.show();
+        
+        Ventana_Principal v = new Ventana_Principal(startTime);
+        v.setSize(1000, 600);
+        v.setVisible(true);
+        v.setResizable(false);
+        v.setLocationRelativeTo(null);
     }
     
 }
