@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Proyecto_2;
+import Clases.Funciones;
 import EDD.*;
 import GUI.*;
 import javaapplication7.*;
@@ -32,11 +33,7 @@ public class Proyecto_2 {
 //        System.out.println("Se eliminó el documento " + Cola.getRoot().getNombre());
 //        Cola.show();
         
-        Ventana_Principal v = new Ventana_Principal(startTime);
-        v.setSize(1000, 600);
-        v.setVisible(true);
-        v.setResizable(false);
-        v.setLocationRelativeTo(null);
+        Funciones.abrir_ventana(startTime);
     }
     
 }

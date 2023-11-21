@@ -31,8 +31,7 @@ public class Documento{
     public int compareTo(Documento otro) {
         return Long.compare(this.getTiempo(), otro.getTiempo());
     }
-    
-
+   
 
     /**
      * @param nombre the nombre to set
