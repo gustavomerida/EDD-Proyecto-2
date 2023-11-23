@@ -13,7 +13,7 @@ import javaapplication7.*;
  * @author Gustavo
  */
 public class Ventana_nuevoDoc extends javax.swing.JFrame {
-    Ventana_Principal origen;
+    Ventana_Principal2 origen;
     Documento nuevo;
     /**
      * Creates new form Ventana_nuevoDoc
@@ -24,7 +24,7 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Documento nuevo) {
+    public Ventana_nuevoDoc(Ventana_Principal2 origen, long tiempo, Documento nuevo) {
         initComponents();
         this.setLocationRelativeTo(null);
         //EDD
