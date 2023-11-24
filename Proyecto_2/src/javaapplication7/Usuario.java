@@ -16,7 +16,7 @@ public class Usuario {
     public Usuario(String x, String y){
         this.name = x;
         this.prioridad = y;
-        this.docs = null;
+        this.docs = new List();
     }
 
     /**

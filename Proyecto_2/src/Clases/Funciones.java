@@ -23,14 +23,14 @@ public class Funciones {
     }
 
     public static void abrir_ventana(long time){
-        Ventana_Principal2 v = new Ventana_Principal2(time);
+        Ventana_Principal v = new Ventana_Principal(time);
         v.setSize(1020, 640);
         v.setVisible(true);
-//        v.setResizable(false);
+        v.setResizable(false);
         v.setLocationRelativeTo(null);
     }
     
-    public static void agregar_archivo(Ventana_Principal2 v, long tiempo){
+    public static void agregar_archivo(Ventana_Principal v, long tiempo){
         v.setVisible(false);
         Documento d = new Documento("n", "txt", 9);
         Ventana_nuevoDoc ventana_nuevoDoc = new Ventana_nuevoDoc(v, tiempo, d);

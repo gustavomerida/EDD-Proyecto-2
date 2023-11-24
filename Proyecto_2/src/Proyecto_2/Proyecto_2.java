@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Proyecto_2;
-import Clases.Funciones;
+import Clases.*;
 import EDD.*;
 import GUI.*;
 import javaapplication7.*;
@@ -33,7 +33,39 @@ public class Proyecto_2 {
 //        System.out.println("Se eliminó el documento " + Cola.getRoot().getNombre());
 //        Cola.show();
         
-        Funciones.abrir_ventana(startTime);
+//        Funciones.abrir_ventana(startTime);
+        
+        List<Usuario> listaUsuarios = new List<>();
+        Usuario juan = new Usuario("Juan", "prioridad_alta");
+        Documento doc1 = new Documento("Factura", ".pdf", 100);
+        juan.getDocs().insertar_al_final(doc1);
+        Documento doc2 = new Documento("Recibo", ".pdf", 50);
+        juan.getDocs().insertar_al_final(doc2);
+
+        listaUsuarios.insertar_al_final(juan);
+        
+        Usuario maria = new Usuario("Maria", "baja");
+        Documento doc3 = new Documento("Contrato", ".pdf", 200);
+        maria.getDocs().insertar_al_final(doc3);
+        listaUsuarios.insertar_al_final(maria);
+        VentanaUsuarios ventana = new VentanaUsuarios(listaUsuarios);
+        
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
+        listaUsuarios.insertar_al_final(juan);
     }
     
 }
