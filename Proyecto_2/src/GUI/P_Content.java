@@ -15,6 +15,7 @@ public class P_Content extends javax.swing.JPanel {
      */
     public P_Content() {
         initComponents();
+        
     }
 
     /**

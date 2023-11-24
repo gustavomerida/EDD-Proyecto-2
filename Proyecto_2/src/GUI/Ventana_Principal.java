@@ -3,10 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import Clases.Funciones;
+import Clases.*;
+import EDD.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
+import javaapplication7.*;
+import javax.swing.JPanel;
 
 /**
  *
@@ -14,15 +17,18 @@ import java.awt.BorderLayout;
  */
 public class Ventana_Principal extends javax.swing.JFrame {
     long tiempo;
+    List users;
     /**
      * Creates new form Ventana_Principal
      */
-    public Ventana_Principal(long t) {
+    public Ventana_Principal(long t, List l) {
+        this.getContentPane().setBackground(Color.WHITE);
+        this.tiempo = t;
+        this.users = l;
         initComponents();
         initContent();
 //        this.setLocationRelativeTo(null);
-        this.getContentPane().setBackground(Color.WHITE);
-        this.tiempo = t;
+        
     }
 
     public Ventana_Principal() {
@@ -33,12 +39,16 @@ public class Ventana_Principal extends javax.swing.JFrame {
     }
 
     public void initContent(){
-        P_Content pl = new P_Content();
-        pl.setSize(750,430);
-        pl.setLocation(0,0);
+//        P_Content pl = new P_Content();
+        ShowPanel(new P_Content());
+    }
+    
+    private void ShowPanel(JPanel p){
+        p.setSize(750,430);
+        p.setLocation(0,0);
         
         Content.removeAll();
-        Content.add(pl, BorderLayout.CENTER);
+        Content.add(p, BorderLayout.CENTER);
         Content.revalidate();
         Content.repaint();
     }
@@ -264,16 +274,20 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsersActionPerformed
         // TODO add your handling code here:
+        ShowPanel(new Users_Content(tiempo, users.mostrar_usuarios()));
+        
     }//GEN-LAST:event_BotonUsersActionPerformed
 
     private void BotonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonHomeActionPerformed
         // TODO add your handling code here:
         //HHHHH
+        ShowPanel(new P_Content());
         
     }//GEN-LAST:event_BotonHomeActionPerformed
 
     private void BotonColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonColaActionPerformed
         // TODO add your handling code here:
+        ShowPanel(new Cola_Content());
     }//GEN-LAST:event_BotonColaActionPerformed
 
     private void BotonTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTiempoActionPerformed

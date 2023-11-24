@@ -185,4 +185,21 @@ public class List <T> {
 //        }
 //        return null;
 //    }
+    
+    public String mostrar_usuarios(){
+        // Recorrer la lista de usuarios y mostrar sus datos
+        Nodo<Usuario> nodoUsuario = this.getFirst();
+        String s = "";
+        while (nodoUsuario != null) {
+            Usuario usuario = nodoUsuario.getElement();
+            s += "\n Usuario: " + usuario.getName() + "\n";
+            Nodo <Documento> doc = usuario.getDocs().getFirst();
+            while( doc!=null ) {
+                s += "  Documento: " + doc.getElement().getNombre() + " (etiqueta de tiempo: " + doc.getElement().getTiempo() + ")\n";
+                doc = doc.getNext();
+            }
+            nodoUsuario = nodoUsuario.getNext();
+        }
+        return s;
+    }
 }

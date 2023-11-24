@@ -48,7 +48,8 @@ public class Proyecto_2 {
         Documento doc3 = new Documento("Contrato", ".pdf", 200);
         maria.getDocs().insertar_al_final(doc3);
         listaUsuarios.insertar_al_final(maria);
-        VentanaUsuarios ventana = new VentanaUsuarios(listaUsuarios);
+//        VentanaPrincipal ventana = new VentanaPrincipal(listaUsuarios);
+//        VentanaUsuarios ventana = new VentanaUsuarios(listaUsuarios);
         
         listaUsuarios.insertar_al_final(juan);
         listaUsuarios.insertar_al_final(juan);
@@ -66,6 +67,8 @@ public class Proyecto_2 {
         listaUsuarios.insertar_al_final(juan);
         listaUsuarios.insertar_al_final(juan);
         listaUsuarios.insertar_al_final(juan);
+        
+        Funciones.abrir_ventana(startTime, listaUsuarios);
     }
     
 }

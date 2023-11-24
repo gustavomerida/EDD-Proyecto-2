@@ -22,8 +22,8 @@ public class Funciones {
         return (long) elapsedSeconds;   
     }
 
-    public static void abrir_ventana(long time){
-        Ventana_Principal v = new Ventana_Principal(time);
+    public static void abrir_ventana(long time, List l){
+        Ventana_Principal v = new Ventana_Principal(time, l);
         v.setSize(1020, 640);
         v.setVisible(true);
         v.setResizable(false);
@@ -38,6 +38,8 @@ public class Funciones {
         ventana_nuevoDoc.setSize(500, 350);
         ventana_nuevoDoc.getContentPane().setBackground(Color.WHITE);
     }
+    
+
     
     
     //Imagenes

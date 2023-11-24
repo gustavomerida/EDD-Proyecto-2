@@ -25,11 +25,11 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
     }
     
     public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Documento nuevo) {
-        initComponents();
-        this.setLocationRelativeTo(null);
         //EDD
         this.origen = origen;
         this.nuevo = nuevo;
+        initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
