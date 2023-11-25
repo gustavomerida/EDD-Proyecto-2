@@ -14,6 +14,7 @@ public class Documento{
    private boolean queued;
    private long tiempo;
    private boolean prioritario;
+   private boolean printed;
    
    public Documento(String x, String y, long t){
        this.nombre = x;
@@ -21,6 +22,7 @@ public class Documento{
        this.queued = false;
        this.tiempo = t;
        this.prioritario = false;
+       this.printed = false;
    }
    
     /**
@@ -96,5 +98,19 @@ public class Documento{
      */
     public void setPrioritario(boolean prioritario) {
         this.prioritario = prioritario;
+    }
+
+    /**
+     * @return the printed
+     */
+    public boolean isPrinted() {
+        return printed;
+    }
+
+    /**
+     * @param printed the printed to set
+     */
+    public void setPrinted(boolean printed) {
+        this.printed = printed;
     }
 }
