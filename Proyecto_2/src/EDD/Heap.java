@@ -31,8 +31,9 @@ public class Heap{
 
     /**
      * Verifica que el monticulo esté vacío.
+     * @return 
      */
-    private boolean isEmpty(){
+    public boolean isEmpty(){
         return heap.length == 0;
     }
     
@@ -45,7 +46,7 @@ public class Heap{
             resize(2 * heap.length);
         }
         heap[++position] = data;
-        ReordenarArriba();
+//        ReordenarArriba();
     }
     
     //Verificar que este método sea válido...
@@ -129,7 +130,7 @@ public class Heap{
 
         for (int i = 0; i <= position; i++) {
             intercambiar(0, position - i);
-            ReordenarAbajo(position - i - 1);  
+//            ReordenarAbajo(position - i - 1);  
         }
     }
 
@@ -146,4 +147,17 @@ public class Heap{
         }
     }
     
+    public void Eliminar (String S){
+        for (int i = 0; i <= heap.length; i++){
+            if (S.equals(heap[0].getNombre())){
+                getRoot();
+                sort();
+            }
+            else {
+                Documento x = this.getRoot();
+                insert(x);
+                sort();
+            }
+        }
+    }
 }
