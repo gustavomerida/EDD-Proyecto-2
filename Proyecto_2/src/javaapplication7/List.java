@@ -171,20 +171,20 @@ public class List <T> {
         }
     }
     
-//    public Nodo buscar(String nombre) {
-//        Nodo<Usuario> pAux;
-//        pAux = this.first();
-//        while (pAux != null){
-//            String name = pAux.getElement().getNombre();
-//            if (name.equals(nombre)) {
-//                return pAux;
-//            }
-//            else {
-//                pAux = pAux.getNext();
-//            }
-//        }
-//        return null;
-//    }
+    public Nodo buscar(String nombre) {
+        Nodo<Usuario> pAux;
+        pAux = this.first();
+        while (pAux != null){
+            String name = pAux.getElement().getName();
+            if (name.equals(nombre)) {
+                return pAux;
+            }
+            else {
+                pAux = pAux.getNext();
+            }
+        }
+        return null;
+    }
     
     public String mostrar_usuarios(){
         // Recorrer la lista de usuarios y mostrar sus datos
@@ -202,4 +202,16 @@ public class List <T> {
         }
         return s;
     }
+
+    public void insertar_al_final_doc(Documento x, Nodo n){
+        Nodo newNodo = new Nodo(x);
+        if(this.isEmpty()){            
+            first = last = newNodo;        }
+        else{            
+            last.setNext(newNodo);            
+            last = newNodo;        
+        }
+        newNodo.setUser(n);
+        size++;    
+    }    
 }
