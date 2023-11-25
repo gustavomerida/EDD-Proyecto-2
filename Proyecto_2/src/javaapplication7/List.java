@@ -213,5 +213,20 @@ public class List <T> {
         }
         newNodo.setUser(n);
         size++;    
-    }    
+    }  
+
+    public Nodo buscar_doc(String nombre) {
+        Nodo<Documento> pAux;
+        pAux = this.first();
+        while (pAux != null){
+            String name = pAux.getElement().getNombre();
+            if (name.equals(nombre)) {
+                return pAux;
+            }
+            else {
+                pAux = pAux.getNext();
+            }
+        }
+        return null;
+    }
 }
