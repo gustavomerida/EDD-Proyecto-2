@@ -11,7 +11,7 @@ package javaapplication7;
 public class Nodo<T> {
     private Nodo<T>  next;
     private Nodo<T>  prev;
-    private Nodo<T> user;
+    private Nodo<Usuario> user;
     private T element;
     
     public Nodo(T element) {
@@ -66,14 +66,14 @@ public class Nodo<T> {
     /**
      * @return the user
      */
-    public Nodo<T> getUser() {
+    public Nodo <Usuario> getUser() {
         return user;
     }
 
     /**
      * @param user the user to set
      */
-    public void setUser(Nodo<T> user) {
+    public void setUser(Nodo <Usuario> user) {
         this.user = user;
     }
 }
