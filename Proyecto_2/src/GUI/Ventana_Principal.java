@@ -301,7 +301,8 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsersActionPerformed
         // TODO add your handling code here:
-        ShowPanel(new Users_Content(tiempo, users.mostrar_usuarios()));
+        Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios());
+        ShowPanel(uc);
         
     }//GEN-LAST:event_BotonUsersActionPerformed
 
@@ -314,7 +315,8 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonColaActionPerformed
         // TODO add your handling code here:
-        ShowPanel(new Cola_Content());
+        Cola_Content cc = new Cola_Content();
+        ShowPanel(cc);
     }//GEN-LAST:event_BotonColaActionPerformed
 
     private void BotonTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTiempoActionPerformed
@@ -330,7 +332,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTodoActionPerformed
         // TODO add your handling code here:
-        Ventana_Todo vt = new Ventana_Todo();
+        Ventana_Todo vt = new Ventana_Todo(new Users_Content(tiempo, users.mostrar_usuarios()), new Cola_Content());
         vt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonTodoActionPerformed

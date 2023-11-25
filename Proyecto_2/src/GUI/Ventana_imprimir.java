@@ -4,16 +4,21 @@
  */
 package GUI;
 import javaapplication7.*;
+import EDD.*;
 /**
  *
  * @author Gustavo
  */
 public class Ventana_imprimir extends javax.swing.JFrame {
+    private Heap heap;
+    private Documento s;
     /**
      * Creates new form Ventana_imprimir
      */
-    public Ventana_imprimir(Documento s) {
+    public Ventana_imprimir(Documento s, Heap heap) {
         initComponents();
+        this.heap = heap;
+        this.s = s;
         Mensaje.setText("¿Quieres imprimir " + s.getNombre() + s.getTipo() + "?");
         this.setLocationRelativeTo(null);
     }
@@ -136,7 +141,9 @@ public class Ventana_imprimir extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        heap.insert(s);
         this.setVisible(false);
+        //confirmar prioridad con jOptionPane
 //        origen.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -146,6 +153,7 @@ public class Ventana_imprimir extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
+        //cambiar tiempo del doc en base a la prioridad
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Proyecto_2;
-import Clases.*;
+//import Clases.*;
 import EDD.*;
 import GUI.*;
 import javaapplication7.*;
@@ -48,25 +48,23 @@ public class Proyecto_2 {
         Documento doc3 = new Documento("Contrato", ".pdf", 200);
         maria.getDocs().insertar_al_final(doc3);
         listaUsuarios.insertar_al_final(maria);
-//        VentanaPrincipal ventana = new VentanaPrincipal(listaUsuarios);
-//        VentanaUsuarios ventana = new VentanaUsuarios(listaUsuarios);
         
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
-        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
+//        listaUsuarios.insertar_al_final(juan);
         
         Funciones.abrir_ventana(startTime, listaUsuarios);
     }

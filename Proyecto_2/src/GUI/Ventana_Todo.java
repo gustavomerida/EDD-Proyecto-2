@@ -12,24 +12,38 @@ import javax.swing.JPanel;
  * @author Gustavo
  */
 public class Ventana_Todo extends javax.swing.JFrame {
-
+    JPanel p1;
+    JPanel p2;
     /**
      * Creates new form Ventana_Todo
      */
     public Ventana_Todo() {
         initComponents();
-        showPanel();
+        
     }
     
-    private void ShowPanel(JPanel p) {
-        p.setSize(750, 430);
-        p.setLocation(0, 0);
-
-        Content1.removeAll();
-        Content.add(p, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();
+    public Ventana_Todo(JPanel p1, JPanel p2) {
+        initComponents();
+        this.p1 = p1;
+        this.p2 = p2;
+        ShowPanel(p1, Content1);
     }
+    
+    public void ShowPanel(JPanel p, JPanel en){
+        p.setSize(750,430);
+        p.setLocation(0,0);
+        
+        en.removeAll();
+        en.add(p, BorderLayout.CENTER);
+        en.revalidate();
+        en.repaint();
+    }
+    
+    @Override
+    public void dispose() {
+        setVisible(false);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,18 +56,38 @@ public class Ventana_Todo extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Content1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Content1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 430, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout Content1Layout = new javax.swing.GroupLayout(Content1);
         Content1.setLayout(Content1Layout);
         Content1Layout.setHorizontalGroup(
             Content1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 999, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Content1Layout.createSequentialGroup()
+                .addContainerGap(153, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         Content1Layout.setVerticalGroup(
             Content1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 551, Short.MAX_VALUE)
+            .addGroup(Content1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(Content1);
@@ -64,14 +98,14 @@ public class Ventana_Todo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1001, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -115,6 +149,7 @@ public class Ventana_Todo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
