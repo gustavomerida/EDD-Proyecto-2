@@ -41,9 +41,16 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        boton_remove_user = new javax.swing.JButton();
+        escribir_user_remove = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        tipoarchivo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Listo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,21 +59,90 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
             }
         });
 
+        boton_remove_user.setText("Añadir");
+        boton_remove_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_remove_userActionPerformed(evt);
+            }
+        });
+
+        escribir_user_remove.setEditable(false);
+        escribir_user_remove.setBackground(new java.awt.Color(255, 255, 255));
+        escribir_user_remove.setFont(new java.awt.Font("Bell MT", 0, 12)); // NOI18N
+        escribir_user_remove.setForeground(new java.awt.Color(204, 204, 204));
+        escribir_user_remove.setText("Ingrese el documento a agregar...");
+        escribir_user_remove.setToolTipText("");
+        escribir_user_remove.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        escribir_user_remove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                escribir_user_removeMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                escribir_user_removeMousePressed(evt);
+            }
+        });
+        escribir_user_remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                escribir_user_removeActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
+        jLabel1.setText("AÑADIR DOCUMENTO");
+
+        tipoarchivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ".pdf", ".doc", ".ppt", ".txt" }));
+        tipoarchivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoarchivoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(14, 14, 14))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(boton_remove_user)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(escribir_user_remove, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tipoarchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(escribir_user_remove, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoarchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(boton_remove_user)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(14, 14, 14))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(309, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(19, 19, 19))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(257, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(20, 20, 20))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -75,8 +151,45 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        origen.setVisible(true);
+//        origen.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void boton_remove_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_remove_userActionPerformed
+        // TODO add your handling code here:
+        if(!escribir_user_remove.getText().equals("Ingrese el documento a agregar...")){
+//            Usuario.eliminar_usuario(escribir_user_remove.getText(), Usuarios);
+            escribir_user_remove.setForeground(Color.gray);
+            escribir_user_remove.setText("Ingrese el documento a agregar...");
+        }
+
+    }//GEN-LAST:event_boton_remove_userActionPerformed
+
+    private void escribir_user_removeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escribir_user_removeMousePressed
+        // TODO add your handling code here:
+        escribir_user_remove.setEditable(true);
+        if(escribir_user_remove.getText().equals("Ingrese el documento a agregar...")){
+            escribir_user_remove.setText("");
+            escribir_user_remove.setForeground(Color.black);
+        }
+
+    }//GEN-LAST:event_escribir_user_removeMousePressed
+
+    private void escribir_user_removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribir_user_removeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_escribir_user_removeActionPerformed
+
+    private void tipoarchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoarchivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoarchivoActionPerformed
+
+    private void escribir_user_removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escribir_user_removeMouseClicked
+        // TODO add your handling code here:
+        escribir_user_remove.setEditable(true);
+        if(escribir_user_remove.getText().equals("Ingrese el documento a agregar...")){
+            escribir_user_remove.setText("");
+            escribir_user_remove.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_escribir_user_removeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -114,6 +227,11 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_remove_user;
+    private javax.swing.JTextField escribir_user_remove;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> tipoarchivo;
     // End of variables declaration//GEN-END:variables
 }

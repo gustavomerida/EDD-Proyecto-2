@@ -22,6 +22,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
      * Creates new form Ventana_Principal
      */
     public Ventana_Principal(long t, List l) {
+        super("Simulacion de impresión");
         this.getContentPane().setBackground(Color.WHITE);
         this.tiempo = t;
         this.users = l;
@@ -68,6 +69,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
         BotonCola = new javax.swing.JButton();
         TituloMenu = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        BotonTodo = new javax.swing.JButton();
         Head = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
         BotonTiempo = new javax.swing.JButton();
@@ -139,34 +141,59 @@ public class Ventana_Principal extends javax.swing.JFrame {
         TituloMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TituloMenu.setText("Menú de opciones");
 
+        BotonTodo.setBackground(new java.awt.Color(153, 153, 153));
+        BotonTodo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BotonTodo.setForeground(new java.awt.Color(255, 255, 255));
+        BotonTodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-flowchart-of-an-organisation-viewed-on-computer-monitor-24.png"))); // NOI18N
+        BotonTodo.setText("Ver todo");
+        BotonTodo.setActionCommand("Ver todo");
+        BotonTodo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        BotonTodo.setBorderPainted(false);
+        BotonTodo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BotonTodo.setHideActionText(true);
+        BotonTodo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BotonTodo.setIconTextGap(10);
+        BotonTodo.setPreferredSize(new java.awt.Dimension(145, 50));
+        BotonTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonTodoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BotonHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BotonUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-            .addComponent(BotonCola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(TituloMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(TituloMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(BotonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(BotonUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(BotonTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(BotonCola, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(119, 119, 119)
                 .addComponent(TituloMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BotonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BotonUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(BotonTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BotonCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -301,6 +328,13 @@ public class Ventana_Principal extends javax.swing.JFrame {
         Funciones.agregar_archivo(this, this.tiempo);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void BotonTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTodoActionPerformed
+        // TODO add your handling code here:
+        Ventana_Todo vt = new Ventana_Todo();
+        vt.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BotonTodoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -341,6 +375,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
     private javax.swing.JButton BotonCola;
     private javax.swing.JButton BotonHome;
     private javax.swing.JButton BotonTiempo;
+    private javax.swing.JButton BotonTodo;
     private javax.swing.JButton BotonUsers;
     private javax.swing.JPanel Content;
     private javax.swing.JPanel Head;
