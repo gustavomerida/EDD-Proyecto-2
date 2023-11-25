@@ -60,5 +60,10 @@ public class Usuario {
     public void setDocs(List docs) {
         this.docs = docs;
     }
-    
+
+    public void agregar_doc(Documento doc, List l){
+//        Documento doc = new Documento(name, type, t);        
+        this.docs.insertar_al_final_doc(doc, l.buscar(this.name));
+                
+    }
 }
