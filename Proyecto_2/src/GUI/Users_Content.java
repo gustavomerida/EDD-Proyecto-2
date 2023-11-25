@@ -324,7 +324,7 @@ public class Users_Content extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here: Enviar a la cola
         String x = JOptionPane.showInputDialog(null, "Ingrese el nombre documento que desee enviar a la cola de impresion");
-        Documento d = (Documento) lista_docs.buscar(x).getElement();
+        Documento d = (Documento) lista_docs.buscar_doc(x).getElement();
         heap.insert(d);
     }                                        
 
@@ -334,9 +334,9 @@ public class Users_Content extends javax.swing.JPanel {
 //        String y = JOptionPane.showInputDialog(null, "Ingrese el nombre del documento que desee eliminar");
 //        Usuario u = (Usuario) lista_usuarios.buscar(x).getElement();
 //        u.getDocs().eliminar(u.getDocs().buscar(y));
-        Usuario u = (Usuario) lista_docs.buscar(x).getUser().getElement();
-        u.getDocs().eliminar(lista_docs.buscar(x));
-        lista_docs.eliminar(lista_docs.buscar(x));
+        Usuario u = (Usuario) lista_docs.buscar_doc(x).getUser().getElement();
+        u.getDocs().eliminar(lista_docs.buscar_doc(x));
+        lista_docs.eliminar(lista_docs.buscar_doc(x));
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -357,7 +357,7 @@ public class Users_Content extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(Users_Content.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }                                        
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
