@@ -20,6 +20,9 @@ import Clases.*;
 public class Users_Content extends javax.swing.JPanel {
     long tiempo;
     String users;
+    List lista_usuarios;
+    List lista_docs;
+    Heap heap;
     /**
      * Creates new form Users_Content
      */
@@ -46,6 +49,9 @@ public class Users_Content extends javax.swing.JPanel {
         
         this.tiempo = t;
         this.users = users;
+        this.lista_usuarios = lista_usuarios;
+        this.lista_docs = lista_docs;
+        this.heap = heap;
         initText(users);
     }
     
@@ -305,29 +311,53 @@ public class Users_Content extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Area_UsuariosMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here: Agregar Usuario
+    }                                        
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here: Eliminar Usuario
+        String x = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario a eliminar");
+        lista_usuarios.eliminar(lista_usuarios.buscar(x));
+    }                                        
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here: Enviar a la cola
+        String x = JOptionPane.showInputDialog(null, "Ingrese el nombre documento que desee enviar a la cola de impresion");
+        Documento d = (Documento) lista_docs.buscar(x).getElement();
+        heap.insert(d);
+    }                                        
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here: Eliminar Documento
+        String x = JOptionPane.showInputDialog(null, "Ingrese el nombre del documento que desee eliminar");
+//        String y = JOptionPane.showInputDialog(null, "Ingrese el nombre del documento que desee eliminar");
+//        Usuario u = (Usuario) lista_usuarios.buscar(x).getElement();
+//        u.getDocs().eliminar(u.getDocs().buscar(y));
+        Usuario u = (Usuario) lista_docs.buscar(x).getUser().getElement();
+        u.getDocs().eliminar(lista_docs.buscar(x));
+        lista_docs.eliminar(lista_docs.buscar(x));
+    }                                        
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here: Añadir Documento
+        String x = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario");
+        String y = JOptionPane.showInputDialog(null, "Ingrese el nombre del documento");
+        String z = JOptionPane.showInputDialog(null, "Ingrese el tipo del documento");
+        Documento doc = new Documento(y, z, tiempo);
+        Usuario u = (Usuario) lista_usuarios.buscar(x).getElement();
+        lista_docs.insertar_al_final_doc(doc, lista_usuarios.buscar(x));
+        u.agregar_doc(doc, lista_usuarios);
+    }                                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        try {
+            // TODO add your handling code here: Carga de archivo CSV
+            this.lista_usuarios = Archivo.leer_archivo(Archivo.choose_archivo());
+        } catch (IOException ex) {
+            Logger.getLogger(Users_Content.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
