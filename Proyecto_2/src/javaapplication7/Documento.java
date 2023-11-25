@@ -13,12 +13,14 @@ public class Documento{
    private String tipo;
    private boolean queued;
    private long tiempo;
+   private boolean prioritario;
    
    public Documento(String x, String y, long t){
        this.nombre = x;
        this.tipo = y;
        this.queued = false;
        this.tiempo = t;
+       this.prioritario = false;
    }
    
     /**
@@ -81,4 +83,18 @@ public class Documento{
     public void setTiempo(long tiempo) {
         this.tiempo = tiempo;
     } 
+
+    /**
+     * @return the prioritario
+     */
+    public boolean isPrioritario() {
+        return prioritario;
+    }
+
+    /**
+     * @param prioritario the prioritario to set
+     */
+    public void setPrioritario(boolean prioritario) {
+        this.prioritario = prioritario;
+    }
 }
