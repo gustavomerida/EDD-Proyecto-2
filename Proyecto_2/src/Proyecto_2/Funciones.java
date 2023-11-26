@@ -181,7 +181,7 @@ public class Funciones {
         }
     }
     
-    public void decir_prioridad(Nodo<Documento> d){
+    public static void decir_prioridad(Nodo<Documento> d){
         Documento doc = d.getElement();
         if (doc.isPrioritario()) {
             long t = d.getElement().getTiempo();
