@@ -4,6 +4,8 @@
  */
 package javaapplication7;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ricardomazziotta
@@ -65,5 +67,15 @@ public class Usuario {
 //        Documento doc = new Documento(name, type, t);        
         this.docs.insertar_al_final_doc(doc, l.buscar(this.name));
                 
+    }
+    
+    public static void añadir_usuario(List lista_usuarios, String prior, String x) {
+        if (lista_usuarios.buscar_usuario(x) == null) {
+            Usuario usuario = new Usuario(x, prior);
+            lista_usuarios.insertar_al_final(usuario);
+            JOptionPane.showMessageDialog(null, "Usuario Añadido Exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Este Usuario ya existe");
+        }
     }
 }

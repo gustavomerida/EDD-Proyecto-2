@@ -20,6 +20,7 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
     List lista_docs;
     long tiempo;
     Documento docum;
+    Heap heap;
     
     /**
      * Creates new form Ventana_nuevoDoc
@@ -30,13 +31,14 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Nodo user, List lista_usuarios, List lista_docs) {
+    public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Nodo user, List lista_usuarios, List lista_docs, Heap heap) {
         //EDD
         this.origen = origen;
         this.user = user;
         this.lista_usuarios = lista_usuarios;
         this.lista_docs = lista_docs;
         this.tiempo = tiempo;
+        this.heap = heap;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -161,7 +163,9 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         String ms = "Se añadió exitosamente " + docum.getNombre() + docum.getTipo();
-        JOptionPane.showConfirmDialog(null, ms);
+        JOptionPane.showMessageDialog(null, ms);
+        Users_Content uc = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen);
+        origen.ShowPanel(uc);
 //        origen.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

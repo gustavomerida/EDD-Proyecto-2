@@ -49,7 +49,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
         ShowPanel(new P_Content());
     }
     
-    private void ShowPanel(JPanel p){
+    public void ShowPanel(JPanel p){
         p.setSize(750,430);
         p.setLocation(0,0);
         

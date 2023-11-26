@@ -225,7 +225,11 @@ public class List <T> {
             s += "\n Usuario: " + usuario.getName() + "\n";
             Nodo <Documento> doc = usuario.getDocs().getFirst();
             while( doc!=null ) {
-                s += "  Documento: " + doc.getElement().getNombre() + " (etiqueta de tiempo: " + doc.getElement().getTiempo() + ")\n";
+                String estado = "Creado";
+                if(doc.getElement().isQueued()){
+                    estado = "Enviado a imprimir.";
+                }
+                s += "  Documento: " + doc.getElement().getNombre() + " (etiqueta de tiempo: " + doc.getElement().getTiempo() + ". Estado: " + estado + ")\n";
                 doc = doc.getNext();
             }
             nodoUsuario = nodoUsuario.getNext();

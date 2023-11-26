@@ -12,13 +12,22 @@ import EDD.*;
 public class Ventana_imprimir extends javax.swing.JFrame {
     private Heap heap;
     private Documento s;
+    private long tiempo;
+    Ventana_Principal origen;
+    List lista_usuarios;
+    List lista_docs;
+    
     /**
      * Creates new form Ventana_imprimir
      */
-    public Ventana_imprimir(Documento s, Heap heap) {
+    public Ventana_imprimir(long tiempo, List lista_usuarios, List lista_docs, Documento s, Heap heap, Ventana_Principal origen) {
         initComponents();
         this.heap = heap;
         this.s = s;
+        this.tiempo = tiempo;
+        this.lista_usuarios = lista_usuarios;
+        this.lista_docs = lista_docs;
+        this.origen = origen;
         Mensaje.setText("¿Quieres imprimir " + s.getNombre() + s.getTipo() + "?");
         this.setLocationRelativeTo(null);
     }
@@ -142,7 +151,10 @@ public class Ventana_imprimir extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         heap.insert(s);
+        s.setQueued(true);
         this.setVisible(false);
+        Users_Content uc = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen);
+        origen.ShowPanel(uc);
         //confirmar prioridad con jOptionPane
 //        origen.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
