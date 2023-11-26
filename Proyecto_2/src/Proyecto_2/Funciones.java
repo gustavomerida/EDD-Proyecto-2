@@ -181,7 +181,25 @@ public class Funciones {
         }
     }
     
-    
+    public void decir_prioridad(Nodo<Documento> d){
+        Documento doc = d.getElement();
+        if (doc.isPrioritario()) {
+            long t = d.getElement().getTiempo();
+            Usuario u = d.getUser().getElement();
+            if (u.getPrioridad().equals("prioridad_alta") ){
+                t = (long) 1;
+                d.getElement().setTiempo(t);
+            }
+            else if (u.getPrioridad().equals("prioridad_media")){
+                t = (long) Math.cbrt(t);
+                d.getElement().setTiempo(t);
+            }
+            else if (u.getPrioridad().equals("prioridad_baja")){
+                 t = (long) Math.sqrt(t);
+                d.getElement().setTiempo(t);
+            }
+        }
+    }
             
     
     //Imagenes
