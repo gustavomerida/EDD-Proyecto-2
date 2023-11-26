@@ -24,6 +24,7 @@ public class Users_Content extends javax.swing.JPanel {
     javaapplication7.List lista_docs;
     Heap heap;
     Ventana_Principal origen;
+    String registros;
     /**
      * Creates new form Users_Content
      */
@@ -53,6 +54,7 @@ public class Users_Content extends javax.swing.JPanel {
         this.lista_docs = lista_docs;
         this.heap = heap;
         this.origen = origen;
+        this.registros = registros;
         initComponents();
         initText(users);
     }
@@ -331,7 +333,7 @@ public class Users_Content extends javax.swing.JPanel {
         Documento d = (Documento) lista_docs.buscar_doc(x).getElement();
         Ventana_imprimir imp = new Ventana_imprimir(d, heap);
         imp.setVisible(true);
-        
+        registros = registros + "Se ha añadido " + d.getNombre() + " A la cola\n";//Nuevo        
     }//GEN-LAST:event_jButton5ActionPerformed
 
 
