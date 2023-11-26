@@ -13,6 +13,7 @@ import javax.swing.JPanel;
  */
 public class Vista extends javax.swing.JPanel {
     Heap heap;
+    String registro;
     /**
      * Creates new form Vista_Arbol
      */
@@ -21,14 +22,20 @@ public class Vista extends javax.swing.JPanel {
         
     }
     
-    public Vista(Heap heap) {
+    public Vista(Heap heap, String registro) {
         this.heap = heap;
+        this.registro = registro;
         initComponents();
         initArbol(heap);
+        initTextRegistro(registro);
 //        initArbol();
 //        MonticuloBinario mb = new MonticuloBinario();
 //        PlanoArbol.setUI(mb);
         
+    }
+
+    public void initTextRegistro(String registros){
+        jTextArea1.setText(registros);
     }
     
     public void initArbol(Heap heap){
@@ -120,12 +127,19 @@ public class Vista extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        //Funcion eliminar de la cola//
+        registro = registro + "Se ha eliminado " + "d.getNombre" + " de la cola\n";//Nuevo
+        this.initTextRegistro(registro);
+    } 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+        // Variables declaration - do not modify                     
     private javax.swing.JPanel PlanoArbol;
     private javax.swing.JScrollPane ScrollRegistro;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
-    // End of variables declaration//GEN-END:variables
+    private javax.swing.JTextArea jTextArea1;
+    // End of variables declaration   
 }
