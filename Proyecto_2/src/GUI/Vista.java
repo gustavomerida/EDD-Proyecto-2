@@ -150,7 +150,7 @@ public class Vista extends javax.swing.JPanel {
         // TODO add your handling code here:
         
 //        registro = registro + "Se ha eliminado " + "d.getNombre()" + "de la cola\n";
-        registro = "Se ha eliminado " + "d.getNombre() + d.getTipo()" + " de la cola\n";//Nuevo 
+        registro = "Se ha eliminado " + "d.getNombre() + d.getTipo()" + " de la cola\n";
         origen.registro += registro;
         this.initTextRegistro(origen.registro);
         
@@ -158,8 +158,7 @@ public class Vista extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        registro = registro + "Se imprimió" + "d.getNombre()" + "\n";
-        registro = "Se imprimió " + "d.getNombre() + d.getTipo()" + "\n";//Nuevo 
+        registro = "Se imprimió " + "d.getNombre() + d.getTipo()" + "\n";
         origen.registro += registro;
         this.initTextRegistro(origen.registro);
         
