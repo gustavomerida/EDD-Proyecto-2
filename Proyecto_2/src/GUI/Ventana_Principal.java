@@ -316,7 +316,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonColaActionPerformed
         // TODO add your handling code here:
-        Vista cc = new Vista(heap, registro);
+        Vista cc = new Vista(heap, registro, this);
         ShowPanel(cc);
         
     }//GEN-LAST:event_BotonColaActionPerformed
