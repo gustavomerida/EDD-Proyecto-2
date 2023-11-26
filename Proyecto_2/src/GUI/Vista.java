@@ -13,6 +13,7 @@ import javax.swing.JPanel;
  */
 public class Vista extends javax.swing.JPanel {
     Heap heap;
+    String registro;
     /**
      * Creates new form Vista_Arbol
      */
@@ -21,14 +22,20 @@ public class Vista extends javax.swing.JPanel {
         
     }
     
-    public Vista(Heap heap) {
+    public Vista(Heap heap, String registro) {
         this.heap = heap;
+        this.registro = registro;
         initComponents();
         initArbol(heap);
+        initTextRegistro(registro);
 //        initArbol();
 //        MonticuloBinario mb = new MonticuloBinario();
 //        PlanoArbol.setUI(mb);
         
+    }
+
+    public void initTextRegistro(String registros){
+        jTextArea1.setText(registros);
     }
     
     public void initArbol(Heap heap){
@@ -45,6 +52,8 @@ public class Vista extends javax.swing.JPanel {
         PlanoArbol.revalidate();
         PlanoArbol.repaint();
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,13 +67,28 @@ public class Vista extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         ScrollRegistro = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         PlanoArbol = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(204, 206, 222));
 
         jButton1.setText("Liberar impresora");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Eliminar de la cola");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        ScrollRegistro.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout PlanoArbolLayout = new javax.swing.GroupLayout(PlanoArbol);
         PlanoArbol.setLayout(PlanoArbolLayout);
@@ -120,6 +144,21 @@ public class Vista extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        registro = registro + "Se ha eliminado " + "d.getNombre()" + "de la cola\n";
+        this.initTextRegistro(registro);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        registro = registro + "Se imprimió" + "d.getNombre()" + "\n";
+        this.initTextRegistro(registro);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PlanoArbol;
@@ -127,5 +166,6 @@ public class Vista extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,11 +16,12 @@ public class Ventana_imprimir extends javax.swing.JFrame {
     Ventana_Principal origen;
     List lista_usuarios;
     List lista_docs;
+    String registro;
     
     /**
      * Creates new form Ventana_imprimir
      */
-    public Ventana_imprimir(long tiempo, List lista_usuarios, List lista_docs, Documento s, Heap heap, Ventana_Principal origen) {
+    public Ventana_imprimir(long tiempo, List lista_usuarios, List lista_docs, Documento s, Heap heap, Ventana_Principal origen, String registro) {
         initComponents();
         this.heap = heap;
         this.s = s;
@@ -28,6 +29,7 @@ public class Ventana_imprimir extends javax.swing.JFrame {
         this.lista_usuarios = lista_usuarios;
         this.lista_docs = lista_docs;
         this.origen = origen;
+        this.registro = registro;
         Mensaje.setText("¿Quieres imprimir " + s.getNombre() + s.getTipo() + "?");
         this.setLocationRelativeTo(null);
     }
@@ -153,7 +155,7 @@ public class Ventana_imprimir extends javax.swing.JFrame {
         heap.insert(s);
         s.setQueued(true);
         this.setVisible(false);
-        Users_Content uc = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen);
+        Users_Content uc = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen, registro);
         origen.ShowPanel(uc);
         //confirmar prioridad con jOptionPane
 //        origen.setVisible(true);

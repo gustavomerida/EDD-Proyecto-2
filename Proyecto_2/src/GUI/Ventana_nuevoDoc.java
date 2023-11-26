@@ -21,6 +21,7 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
     long tiempo;
     Documento docum;
     Heap heap;
+    String registro;
     
     /**
      * Creates new form Ventana_nuevoDoc
@@ -31,7 +32,7 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Nodo user, List lista_usuarios, List lista_docs, Heap heap) {
+    public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Nodo user, List lista_usuarios, List lista_docs, Heap heap, String registro) {
         //EDD
         this.origen = origen;
         this.user = user;
@@ -39,6 +40,7 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         this.lista_docs = lista_docs;
         this.tiempo = tiempo;
         this.heap = heap;
+        this.registro = registro;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -164,7 +166,7 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         this.setVisible(false);
         String ms = "Se añadió exitosamente " + docum.getNombre() + docum.getTipo();
         JOptionPane.showMessageDialog(null, ms);
-        Users_Content uc = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen);
+        Users_Content uc = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen, registro);
         origen.ShowPanel(uc);
 //        origen.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -21,16 +21,18 @@ public class Ventana_Principal extends javax.swing.JFrame {
     List users;
     List lista_docs;
     Heap heap;
+    String registro; 
     /**
      * Creates new form Ventana_Principal
      */
-    public Ventana_Principal(long t, List l, List lista_docs, Heap heap) {
+    public Ventana_Principal(long t, List l, List lista_docs, Heap heap, String registro) {
         super("Simulacion de impresión");
         this.getContentPane().setBackground(Color.WHITE);
         this.tiempo = t;
         this.users = l;
         this.heap = heap;
         this.lista_docs = lista_docs;
+        this.registro = registro;
         initComponents();
         initContent();
 //        this.setLocationRelativeTo(null);
@@ -300,9 +302,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsersActionPerformed
         // TODO add your handling code here:
-        Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap, this);
+        Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap, this, registro);
         ShowPanel(uc);
-        
+//        registro = registro + uc.registro;
     }//GEN-LAST:event_BotonUsersActionPerformed
 
     private void BotonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonHomeActionPerformed
@@ -314,7 +316,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonColaActionPerformed
         // TODO add your handling code here:
-        Vista cc = new Vista(heap);
+        Vista cc = new Vista(heap, registro);
         ShowPanel(cc);
         
     }//GEN-LAST:event_BotonColaActionPerformed
@@ -332,7 +334,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTodoActionPerformed
         // TODO add your handling code here:
-        Ventana_Todo vt = new Ventana_Todo(new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap, this), new Vista(), this);
+        Ventana_Todo vt = new Ventana_Todo(new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap, this, registro), new Vista(), this);
         vt.setLocationRelativeTo(null);
         vt.setVisible(true);
         vt.setSize(1550,530);

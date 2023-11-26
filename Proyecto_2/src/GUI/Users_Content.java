@@ -24,11 +24,15 @@ public class Users_Content extends javax.swing.JPanel {
     javaapplication7.List lista_docs;
     Heap heap;
     Ventana_Principal origen;
-//    JTextArea Area_Usuarios;
+//<<<<<<< HEAD
+////    JTextArea Area_Usuarios;
+//=======
+    String registro;
+//>>>>>>> 3ae4378e5dee35b338bd72c78294690883b800b6
     /**
      * Creates new form Users_Content
      */
-    public Users_Content(long t, String users, List lista_usuarios, List lista_docs, Heap heap, Ventana_Principal origen) {
+    public Users_Content(long t, String users, List lista_usuarios, List lista_docs, Heap heap, Ventana_Principal origen, String registro) {
 //        JTextArea areaUsuarios;
 //        JButton botonMostrar;
 //
@@ -54,6 +58,8 @@ public class Users_Content extends javax.swing.JPanel {
         this.lista_docs = lista_docs;
         this.heap = heap;
         this.origen = origen;
+        this.registro = registro;
+//        this.registros = registros;
         initComponents();
         initText(users);
     }
@@ -320,7 +326,7 @@ public class Users_Content extends javax.swing.JPanel {
         String nombre_usuario = JOptionPane.showInputDialog(null, "Ingrese el nombre del usuario a añadir");
         String prioridad = JOptionPane.showInputDialog(null, "Indique la prioridad del usuario a añadir");
         Usuario.añadir_usuario(lista_usuarios, prioridad, nombre_usuario);
-        Users_Content actual = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen);
+        Users_Content actual = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen, registro);
         origen.ShowPanel(actual);
     }                                        
 
@@ -333,15 +339,24 @@ public class Users_Content extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         String x = JOptionPane.showInputDialog(null, "Ingrese el nombre documento que desee enviar a la cola de impresion");
+//<<<<<<< HEAD
         Nodo<Documento> documento = lista_docs.buscar_doc(x);
         if (documento!=null){
             Documento d = documento.getElement();
-            Ventana_imprimir imp = new Ventana_imprimir(tiempo, lista_usuarios, lista_docs, d, heap, origen);
+            Ventana_imprimir imp = new Ventana_imprimir(tiempo, lista_usuarios, lista_docs, d, heap, origen, registro);
             imp.setVisible(true);
+            registro = registro + "Se ha añadido " + d.getNombre() + " A la cola\n";//Nuevo 
+            origen.registro = registro;
         }else{
             JOptionPane.showInternalMessageDialog(null, "No se encontró el documento");
         }
         
+//=======
+//        Documento d = (Documento) lista_docs.buscar_doc(x).getElement();
+//        Ventana_imprimir imp = new Ventana_imprimir(d, heap);
+//        imp.setVisible(true);
+//        registro = registro + "Se ha añadido " + d.getNombre() + " A la cola\n";//Nuevo        
+//>>>>>>> 3ae4378e5dee35b338bd72c78294690883b800b6
     }//GEN-LAST:event_jButton5ActionPerformed
 
 
@@ -362,7 +377,7 @@ public class Users_Content extends javax.swing.JPanel {
         Nodo<Usuario> u = lista_usuarios.buscar_usuario(x);
         if(u!=null){
             Usuario us = u.getElement();
-            Ventana_nuevoDoc vn = new Ventana_nuevoDoc(origen, tiempo, u, lista_usuarios, lista_docs, heap);
+            Ventana_nuevoDoc vn = new Ventana_nuevoDoc(origen, tiempo, u, lista_usuarios, lista_docs, heap, registro);
             vn.setVisible(true);
             
         }else{

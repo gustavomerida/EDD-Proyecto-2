@@ -65,8 +65,8 @@ public class Funciones {
 //        
 //    }
 
-    public static void abrir_ventana(long time, List l, List lista_docs, Heap heap){
-        Ventana_Principal v = new Ventana_Principal(time, l, lista_docs, heap);
+    public static void abrir_ventana(long time, List l, List lista_docs, Heap heap, String registro){
+        Ventana_Principal v = new Ventana_Principal(time, l, lista_docs, heap, registro);
         v.setSize(1020, 640);
         v.setVisible(true);
         v.setResizable(false);
