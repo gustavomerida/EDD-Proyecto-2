@@ -15,7 +15,7 @@ import javaapplication7.*;
  * Version 2.
  */
 public class Heap{
-    protected Documento[] heap;
+    private Documento[] heap;
     protected int position = -1;
     
     public Heap(){
@@ -26,7 +26,7 @@ public class Heap{
      * Verifica que el monticulo esté lleno.
      */
     private boolean isFull(){
-        return position == heap.length -1;
+        return position == getHeap().length -1;
     }
 
     /**
@@ -34,7 +34,7 @@ public class Heap{
      * @return 
      */
     public boolean isEmpty(){
-        return heap.length == 0;
+        return getHeap().length == 0;
     }
     
     /**
@@ -43,7 +43,7 @@ public class Heap{
      */
     public void insert (Documento data){
         if(isFull()){
-            resize(2 * heap.length);
+            resize(2 * getHeap().length);
         }
         heap[++position] = data;
 //        ReordenarArriba();
@@ -56,7 +56,7 @@ public class Heap{
      * @param capacity: nuevo tamaño del arreglo.
      */
     private void resize(int capacity){
-        System.arraycopy(heap, 0, heap = new Documento[capacity], 0, position + 1);
+        System.arraycopy(getHeap(), 0, heap = new Documento[capacity], 0, position + 1);
     }
     
     /**
@@ -65,8 +65,8 @@ public class Heap{
      * @param: segundo: segundo elemento a intercambiar con el primero. 
      */
     protected void intercambiar(int primero, int segundo){
-        Documento temp = heap[primero];
-        heap[primero] = heap[segundo];
+        Documento temp = getHeap()[primero];
+        heap[primero] = getHeap()[segundo];
         heap[segundo] = temp;
     }
     
@@ -80,8 +80,8 @@ public class Heap{
         if(isEmpty()){
             return null;
         }
-        Documento result = heap[0];
-        heap[0] = heap[position--];
+        Documento result = getHeap()[0];
+        heap[0] = getHeap()[position--];
         ReordenarAbajo(position);
         return result;
     }
@@ -101,11 +101,11 @@ public class Heap{
             //Expresión condicional ternaria. condición ? valor_si_verdadero : valor_si_falso
             int hijoAcambiar = indexhijoDer > Final 
                     ? indexhijoIzq
-                    : heap[indexhijoIzq].compareTo(heap[indexhijoDer]) < 0
+                    : getHeap()[indexhijoIzq].compareTo(getHeap()[indexhijoDer]) < 0
                         ? indexhijoIzq
                         : indexhijoDer;
             
-            if (heap[index].compareTo(heap[hijoAcambiar]) < 0) break;
+            if (getHeap()[index].compareTo(getHeap()[hijoAcambiar]) < 0) break;
             intercambiar(index, hijoAcambiar);
             index = hijoAcambiar;
         }
@@ -117,7 +117,7 @@ public class Heap{
     public void show() {
         
         for (int i = 0; i <= position; i++) {
-            System.out.println(heap[i].getNombre());
+            System.out.println(getHeap()[i].getNombre());
            
 //            intercambiar(0, position - i);
 //            ReordenarAbajo(position - i - 1);  
@@ -140,7 +140,7 @@ public class Heap{
     protected void ReordenarArriba(){
         int index = position;
         int indexPadre = (index-1) / 2;
-        while (indexPadre >= 0 && heap[index].compareTo(heap[indexPadre]) < 0){
+        while (indexPadre >= 0 && getHeap()[index].compareTo(getHeap()[indexPadre]) < 0){
             intercambiar(index, indexPadre);
             index = indexPadre;
             indexPadre = (index -1) / 2;
@@ -148,8 +148,8 @@ public class Heap{
     }
     
     public void Eliminar (String S){
-        for (int i = 0; i <= heap.length; i++){
-            if (S.equals(heap[0].getNombre())){
+        for (int i = 0; i <= getHeap().length; i++){
+            if (S.equals(getHeap()[0].getNombre())){
                 getRoot();
                 sort();
             }
@@ -159,5 +159,12 @@ public class Heap{
                 sort();
             }
         }
+    }
+
+    /**
+     * @return the heap
+     */
+    public Documento[] getHeap() {
+        return heap;
     }
 }

@@ -10,8 +10,12 @@ package Proyecto_2;
  */
 import GUI.*;
 import java.awt.Color;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import EDD.*;
+import com.mxgraph.layout.mxCompactTreeLayout;
+import com.mxgraph.layout.mxIGraphLayout;
+import com.mxgraph.swing.mxGraphComponent;
+import com.mxgraph.view.mxGraph;
 import javaapplication7.*;
 
 /**
@@ -25,9 +29,44 @@ public class Funciones {
         JOptionPane.showMessageDialog(null,"El tiempo que ha pasado es: " + (long) elapsedSeconds);
         return (long) elapsedSeconds;   
     }
+    
+//    public static JPanel (Object[] elementos){
+//        mxGraph graph = new mxGraph();
+//        Object parent = graph.getDefaultParent();
+//
+//        // Crear los nodos del montículo
+//        Object[] nodos = new Object[elementos.length];
+//        for (int i = 0; i < elementos.length; i++) {
+//            nodos[i] = graph.insertVertex(parent, null, elementos[i], 0, 0, 50, 50);
+//        }
+//
+//        // Conectar los nodos del montículo
+//        for (int i = 0; i < nodos.length; i++) {
+//            int hijoIzquierdo = 2 * i + 1;
+//            int hijoDerecho = 2 * i + 2;
+//            if (hijoIzquierdo < nodos.length) {
+//                graph.insertEdge(parent, null, null, nodos[i], nodos[hijoIzquierdo]);
+//            }
+//            if (hijoDerecho < nodos.length) {
+//                graph.insertEdge(parent, null, null, nodos[i], nodos[hijoDerecho]);
+//            }
+//        }
+//
+//        // Ajustar el layout del grafo
+//        mxIGraphLayout layout = new mxCompactTreeLayout(graph, false);
+//        layout.execute(parent);
+//
+//        mxGraphComponent graphComponent = new mxGraphComponent(graph);
+//
+//        // Deshabilitar la edición del mxGraphComponent
+//        graphComponent.setEnabled(false);
+//        
+//        return graphComponent;
+//        
+//    }
 
-    public static void abrir_ventana(long time, List l){
-        Ventana_Principal v = new Ventana_Principal(time, l);
+    public static void abrir_ventana(long time, List l, List lista_docs, Heap heap){
+        Ventana_Principal v = new Ventana_Principal(time, l, lista_docs, heap);
         v.setSize(1020, 640);
         v.setVisible(true);
         v.setResizable(false);

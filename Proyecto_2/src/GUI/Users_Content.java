@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import java.awt.*;
+//import java.awt;
 import javaapplication7.*;
 import javax.swing.*;
 import Clases.*;
@@ -26,7 +26,7 @@ public class Users_Content extends javax.swing.JPanel {
     /**
      * Creates new form Users_Content
      */
-    public Users_Content(long t, String users) {
+    public Users_Content(long t, String users, List lista_usuarios, List lista_docs, Heap heap) {
         initComponents();
 //        JTextArea areaUsuarios;
 //        JButton botonMostrar;

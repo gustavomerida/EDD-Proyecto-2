@@ -20,6 +20,7 @@ public class Proyecto_2 {
     public static void main(String[] args) {
         // TODO code application logic here
         long startTime = System.nanoTime();
+        Heap ColaPrioridad = new Heap();
 //        Documento doc = new Documento("No se", "pdf", 2);
 //        Documento doc2 = new Documento("No se2", "pdf", 15);
 //        Documento doc3 = new Documento("No se3", "pdf", 6);
@@ -65,8 +66,9 @@ public class Proyecto_2 {
 //        listaUsuarios.insertar_al_final(juan);
 //        listaUsuarios.insertar_al_final(juan);
 //        listaUsuarios.insertar_al_final(juan);
+        List<Documento> lista_docs = new List();
         
-        Funciones.abrir_ventana(startTime, listaUsuarios);
+        Funciones.abrir_ventana(startTime, listaUsuarios, lista_docs, ColaPrioridad);
     }
     
 }

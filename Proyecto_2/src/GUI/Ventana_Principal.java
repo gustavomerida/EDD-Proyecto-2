@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import Clases.*;
+//import Clases.*;
 import EDD.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
 import javaapplication7.*;
 import javax.swing.JPanel;
+import Proyecto_2.*;
 
 /**
  *
@@ -18,14 +19,17 @@ import javax.swing.JPanel;
 public class Ventana_Principal extends javax.swing.JFrame {
     long tiempo;
     List users;
+    List lista_docs;
+    Heap heap;
     /**
      * Creates new form Ventana_Principal
      */
-    public Ventana_Principal(long t, List l) {
+    public Ventana_Principal(long t, List l, List lista_docs, Heap heap) {
         super("Simulacion de impresión");
         this.getContentPane().setBackground(Color.WHITE);
         this.tiempo = t;
         this.users = l;
+        this.heap = heap;
         initComponents();
         initContent();
 //        this.setLocationRelativeTo(null);
@@ -165,21 +169,15 @@ public class Ventana_Principal extends javax.swing.JFrame {
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(44, 44, 44)
                 .addComponent(TituloMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(58, 58, 58)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(BotonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(BotonUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(BotonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(BotonUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(BotonCola, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(BotonTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(BotonCola, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,9 +191,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(BotonUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BotonTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BotonCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BotonTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Head.setBackground(new java.awt.Color(153, 153, 153));
@@ -301,7 +299,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsersActionPerformed
         // TODO add your handling code here:
-        Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios());
+        Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap);
         ShowPanel(uc);
         
     }//GEN-LAST:event_BotonUsersActionPerformed
@@ -315,8 +313,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonColaActionPerformed
         // TODO add your handling code here:
-        Cola_Content cc = new Cola_Content();
+        Vista cc = new Vista(heap);
         ShowPanel(cc);
+        
     }//GEN-LAST:event_BotonColaActionPerformed
 
     private void BotonTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTiempoActionPerformed
@@ -332,8 +331,10 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTodoActionPerformed
         // TODO add your handling code here:
-        Ventana_Todo vt = new Ventana_Todo(new Users_Content(tiempo, users.mostrar_usuarios()), new Cola_Content());
+        Ventana_Todo vt = new Ventana_Todo(new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap), new Vista(), this);
+        vt.setLocationRelativeTo(null);
         vt.setVisible(true);
+        vt.setSize(1550,530);
         this.setVisible(false);
     }//GEN-LAST:event_BotonTodoActionPerformed
 

@@ -5,6 +5,8 @@
 package GUI;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -12,6 +14,7 @@ import javax.swing.JPanel;
  * @author Gustavo
  */
 public class Ventana_Todo extends javax.swing.JFrame {
+    JFrame origen;
     JPanel p1;
     JPanel p2;
     /**
@@ -22,16 +25,24 @@ public class Ventana_Todo extends javax.swing.JFrame {
         
     }
     
-    public Ventana_Todo(JPanel p1, JPanel p2) {
+    public Ventana_Todo(JPanel p1, JPanel p2, JFrame origen) {
         initComponents();
+        this.origen = origen;
         this.p1 = p1;
         this.p2 = p2;
-        ShowPanel(p1, Content1);
+        Content11.setSize(780,430);
+        Content12.setSize(780,430);
+        ShowPanel(p1, Content11, 0, 0);
+        ShowPanel(p2, Content12, 0, 0);
+        Scroll1.createVerticalScrollBar();
+//        Scroll1.add(p1);
+//        Scroll1.add(p2);
     }
     
-    public void ShowPanel(JPanel p, JPanel en){
+    public void ShowPanel(JPanel p, JPanel en, int x, int y){
+        en.setSize(750,430);
         p.setSize(750,430);
-        p.setLocation(0,0);
+        p.setLocation(x,y);
         
         en.removeAll();
         en.add(p, BorderLayout.CENTER);
@@ -41,7 +52,9 @@ public class Ventana_Todo extends javax.swing.JFrame {
     
     @Override
     public void dispose() {
-        setVisible(false);
+//        this.setVisible(false);
+//        origen.setVisible(true);
+        
     }
 
 
@@ -54,43 +67,89 @@ public class Ventana_Todo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        Scroll1 = new javax.swing.JScrollPane();
         Content1 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        Content11 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        Content12 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 600));
+
+        Scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        Scroll1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        Scroll1.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         Content1.setBackground(new java.awt.Color(255, 255, 255));
+        Content1.setPreferredSize(new java.awt.Dimension(1500, 600));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Content11.setPreferredSize(new java.awt.Dimension(750, 430));
+
+        javax.swing.GroupLayout Content11Layout = new javax.swing.GroupLayout(Content11);
+        Content11.setLayout(Content11Layout);
+        Content11Layout.setHorizontalGroup(
+            Content11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 696, Short.MAX_VALUE)
+        );
+        Content11Layout.setVerticalGroup(
+            Content11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        Content12.setPreferredSize(new java.awt.Dimension(750, 430));
+
+        javax.swing.GroupLayout Content12Layout = new javax.swing.GroupLayout(Content12);
+        Content12.setLayout(Content12Layout);
+        Content12Layout.setHorizontalGroup(
+            Content12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 750, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+        Content12Layout.setVerticalGroup(
+            Content12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 418, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout Content1Layout = new javax.swing.GroupLayout(Content1);
         Content1.setLayout(Content1Layout);
         Content1Layout.setHorizontalGroup(
             Content1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Content1Layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+            .addGroup(Content1Layout.createSequentialGroup()
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 78, Short.MAX_VALUE))
+            .addGroup(Content1Layout.createSequentialGroup()
+                .addGroup(Content1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Content1Layout.createSequentialGroup()
+                        .addComponent(Content12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Content11, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Content1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Content1Layout.setVerticalGroup(
             Content1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Content1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
+                .addGroup(Content1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Content12, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                    .addComponent(Content11, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setViewportView(Content1);
+        Scroll1.setViewportView(Content1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,19 +157,24 @@ public class Ventana_Todo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(Scroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 994, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(Scroll1, javax.swing.GroupLayout.PREFERRED_SIZE, 1500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        origen.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,7 +213,10 @@ public class Ventana_Todo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel Content11;
+    private javax.swing.JPanel Content12;
+    private javax.swing.JScrollPane Scroll1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
