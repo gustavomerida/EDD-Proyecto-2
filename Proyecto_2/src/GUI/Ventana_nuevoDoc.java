@@ -171,8 +171,11 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
 //            Usuario.eliminar_usuario(escribir_user_remove.getText(), Usuarios);
             String nombre = escribir_user_remove.getText();
             long timest = Funciones.obtenerTiempo(tiempo);
-            Documento doc = new Documento(nombre, tipoarchivo.getItemAt(WIDTH), timest);
-//            Nodo <Usuario> nodous = lista_usuarios.buscar_usuario(user.getName());
+            String tipoArchivoSeleccionado = (String) tipoarchivo.getSelectedItem();
+            if (tipoArchivoSeleccionado==null){
+                tipoArchivoSeleccionado = ".pdf";
+            }
+            Documento doc = new Documento(nombre, tipoArchivoSeleccionado, timest);
             lista_docs.insertar_al_final_doc(doc, user);
             user.getElement().agregar_doc(doc, lista_usuarios);
             escribir_user_remove.setForeground(Color.gray);
@@ -198,6 +201,12 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
 
     private void tipoarchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoarchivoActionPerformed
         // TODO add your handling code here:
+//        String tipoArchivoSeleccionado = (String) tipoarchivo.getSelectedItem();
+//        if (tipoArchivoSeleccionado!=null){
+//            docum.setTipo(tipoArchivoSeleccionado);
+//        }
+        
+        
     }//GEN-LAST:event_tipoarchivoActionPerformed
 
     private void escribir_user_removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escribir_user_removeMouseClicked

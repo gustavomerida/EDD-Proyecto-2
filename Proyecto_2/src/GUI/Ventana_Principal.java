@@ -30,6 +30,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
         this.tiempo = t;
         this.users = l;
         this.heap = heap;
+        this.lista_docs = lista_docs;
         initComponents();
         initContent();
 //        this.setLocationRelativeTo(null);
