@@ -66,6 +66,7 @@ public class Proyecto_2 {
 //        listaUsuarios.insertar_al_final(juan);
 //        listaUsuarios.insertar_al_final(juan);
 //        listaUsuarios.insertar_al_final(juan);
+
         List<Documento> lista_docs = new List();
         
         Funciones.abrir_ventana(startTime, listaUsuarios, lista_docs, ColaPrioridad);

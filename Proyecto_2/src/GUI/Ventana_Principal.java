@@ -299,7 +299,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsersActionPerformed
         // TODO add your handling code here:
-        Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap);
+        Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap, this);
         ShowPanel(uc);
         
     }//GEN-LAST:event_BotonUsersActionPerformed
@@ -331,7 +331,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
     private void BotonTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTodoActionPerformed
         // TODO add your handling code here:
-        Ventana_Todo vt = new Ventana_Todo(new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap), new Vista(), this);
+        Ventana_Todo vt = new Ventana_Todo(new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap, this), new Vista(), this);
         vt.setLocationRelativeTo(null);
         vt.setVisible(true);
         vt.setSize(1550,530);

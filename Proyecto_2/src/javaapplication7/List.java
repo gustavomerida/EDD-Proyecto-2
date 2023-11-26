@@ -171,6 +171,21 @@ public class List <T> {
         }
     }
     
+    public Nodo<Usuario> buscar_usuario(String nombre) {
+        Nodo<Usuario> pAux;
+        pAux = this.first();
+        while (pAux != null){
+            String name = pAux.getElement().getName();
+            if (name.equals(nombre)) {
+                return pAux;
+            }
+            else {
+                pAux = pAux.getNext();
+            }
+        }
+        return null;
+    }
+    
     public Nodo buscar(String nombre) {
         Nodo<Usuario> pAux;
         pAux = this.first();

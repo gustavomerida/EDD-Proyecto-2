@@ -3,18 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import Clases.*;
+//import Clases.*;
 import java.awt.Color;
 import EDD.*;
 import Proyecto_2.*;
 import javaapplication7.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Gustavo
  */
 public class Ventana_nuevoDoc extends javax.swing.JFrame {
     Ventana_Principal origen;
-    Documento nuevo;
+    Nodo <Usuario> user;
+    List lista_usuarios;
+    List lista_docs;
+    long tiempo;
+    Documento docum;
+    
     /**
      * Creates new form Ventana_nuevoDoc
      */
@@ -24,10 +30,13 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Documento nuevo) {
+    public Ventana_nuevoDoc(Ventana_Principal origen, long tiempo, Nodo user, List lista_usuarios, List lista_docs) {
         //EDD
         this.origen = origen;
-        this.nuevo = nuevo;
+        this.user = user;
+        this.lista_usuarios = lista_usuarios;
+        this.lista_docs = lista_docs;
+        this.tiempo = tiempo;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -151,6 +160,8 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        String ms = "Se añadió exitosamente " + docum.getNombre() + docum.getTipo();
+        JOptionPane.showConfirmDialog(null, ms);
 //        origen.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -158,8 +169,15 @@ public class Ventana_nuevoDoc extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!escribir_user_remove.getText().equals("Ingrese el documento a agregar...")){
 //            Usuario.eliminar_usuario(escribir_user_remove.getText(), Usuarios);
+            String nombre = escribir_user_remove.getText();
+            long timest = Funciones.obtenerTiempo(tiempo);
+            Documento doc = new Documento(nombre, tipoarchivo.getItemAt(WIDTH), timest);
+//            Nodo <Usuario> nodous = lista_usuarios.buscar_usuario(user.getName());
+            lista_docs.insertar_al_final_doc(doc, user);
+            user.getElement().agregar_doc(doc, lista_usuarios);
             escribir_user_remove.setForeground(Color.gray);
             escribir_user_remove.setText("Ingrese el documento a agregar...");
+            this.docum = doc;
         }
 
     }//GEN-LAST:event_boton_remove_userActionPerformed
