@@ -343,10 +343,14 @@ public class Users_Content extends javax.swing.JPanel {
         Nodo<Documento> documento = lista_docs.buscar_doc(x);
         if (documento!=null){
             Documento d = documento.getElement();
-            Ventana_imprimir imp = new Ventana_imprimir(tiempo, lista_usuarios, lista_docs, d, heap, origen, registro);
-            imp.setVisible(true);
-            registro = registro + "Se ha añadido " + d.getNombre() + " A la cola\n";//Nuevo 
-            origen.registro = registro;
+            if(d.isQueued()){
+                JOptionPane.showInternalMessageDialog(null, "El documento ya está en la cola.");
+            }else{
+                Ventana_imprimir imp = new Ventana_imprimir(tiempo, lista_usuarios, lista_docs, d, heap, origen, registro);
+                imp.setVisible(true);
+                registro = "Se ha añadido " + d.getNombre() + d.getTipo() + " a la cola\n";//Nuevo 
+                origen.registro += registro;
+            }
         }else{
             JOptionPane.showInternalMessageDialog(null, "No se encontró el documento");
         }

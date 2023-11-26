@@ -185,18 +185,16 @@ public class Funciones {
         Documento doc = d.getElement();
         if (doc.isPrioritario()) {
             long t = d.getElement().getTiempo();
-            Usuario u = d.getUser().getElement();
+            Usuario u;
+            u = d.getUser().getElement();
             if (u.getPrioridad().equals("prioridad_alta") ){
-                t = (long) 1;
-                d.getElement().setTiempo(t);
+                d.getElement().setTiempo(1);
             }
             else if (u.getPrioridad().equals("prioridad_media")){
-                t = (long) Math.cbrt(t);
-                d.getElement().setTiempo(t);
+                d.getElement().setTiempo((long)Math.cbrt(t));
             }
             else if (u.getPrioridad().equals("prioridad_baja")){
-                 t = (long) Math.sqrt(t);
-                d.getElement().setTiempo(t);
+                d.getElement().setTiempo((long) Math.sqrt(t));
             }
         }
     }

@@ -201,7 +201,7 @@ public class List <T> {
         return null;
     }
     
-    public Nodo buscar_doc(String nombre) {
+    public Nodo<Documento> buscar_doc(String nombre) {
         Nodo<Documento> pAux;
         pAux = this.first();
         while (pAux != null){

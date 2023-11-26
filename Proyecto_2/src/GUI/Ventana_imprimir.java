@@ -5,6 +5,8 @@
 package GUI;
 import javaapplication7.*;
 import EDD.*;
+//import Clases.*;
+import Proyecto_2.*;
 /**
  *
  * @author Gustavo
@@ -152,8 +154,13 @@ public class Ventana_imprimir extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        heap.insert(s);
         s.setQueued(true);
+        s.setTiempo(Funciones.obtenerTiempo(tiempo));
+        if (jCheckBox1.isSelected()){ //Aqui se modifica el tiempo de acuerdo al tipo de usuario
+            s.setPrioritario(true);
+            Funciones.decir_prioridad(lista_docs.buscar_doc(s.getNombre()));
+        }
+        heap.insert(s);
         this.setVisible(false);
         Users_Content uc = new Users_Content(tiempo, lista_usuarios.mostrar_usuarios(), lista_usuarios, lista_docs, heap, origen, registro);
         origen.ShowPanel(uc);
@@ -168,6 +175,8 @@ public class Ventana_imprimir extends javax.swing.JFrame {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
         //cambiar tiempo del doc en base a la prioridad
+        
+        
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**

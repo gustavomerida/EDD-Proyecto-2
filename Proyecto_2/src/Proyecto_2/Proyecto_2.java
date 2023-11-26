@@ -38,39 +38,23 @@ public class Proyecto_2 {
         
         List<Usuario> listaUsuarios = new List<>();
         Usuario juan = new Usuario("Juan", "prioridad_alta");
+        Nodo nodojuan = listaUsuarios.buscar_usuario("Juan");
         Documento doc1 = new Documento("Factura", ".pdf", 100);
-        juan.getDocs().insertar_al_final(doc1);
+        juan.getDocs().insertar_al_final_doc(doc1, nodojuan);
         Documento doc2 = new Documento("Recibo", ".pdf", 50);
         juan.getDocs().insertar_al_final(doc2);
 
         listaUsuarios.insertar_al_final(juan);
         
-        Usuario maria = new Usuario("Maria", "baja");
+        Usuario maria = new Usuario("Maria", "prioridad_baja");
         Documento doc3 = new Documento("Contrato", ".pdf", 200);
         maria.getDocs().insertar_al_final(doc3);
         listaUsuarios.insertar_al_final(maria);
         
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-//        listaUsuarios.insertar_al_final(juan);
-
         List<Documento> lista_docs = new List();
-        lista_docs.insertar_al_final(doc3);
-        lista_docs.insertar_al_final(doc2);
-        lista_docs.insertar_al_final(doc1);
+        lista_docs.insertar_al_final_doc(doc3, nodojuan);
+        lista_docs.insertar_al_final_doc(doc2, nodojuan);
+        lista_docs.insertar_al_final_doc(doc1, nodojuan);
         
         Funciones.abrir_ventana(startTime, listaUsuarios, lista_docs, ColaPrioridad, "");
     }
