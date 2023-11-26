@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 public class Vista extends javax.swing.JPanel {
     Heap heap;
     String registro;
+    Ventana_Principal origen;
     /**
      * Creates new form Vista_Arbol
      */
@@ -22,9 +23,10 @@ public class Vista extends javax.swing.JPanel {
         
     }
     
-    public Vista(Heap heap, String registro) {
+    public Vista(Heap heap, String registro, Ventana_Principal origen) {
         this.heap = heap;
         this.registro = registro;
+        this.origen = origen;
         initComponents();
         initArbol(heap);
         initTextRegistro(registro);
@@ -144,20 +146,24 @@ public class Vista extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         
-        registro = registro + "Se ha eliminado " + "d.getNombre()" + "de la cola\n";
-        this.initTextRegistro(registro);
+//        registro = registro + "Se ha eliminado " + "d.getNombre()" + "de la cola\n";
+        registro = "Se ha eliminado " + "d.getNombre() + d.getTipo()" + " de la cola\n";//Nuevo 
+        origen.registro += registro;
+        this.initTextRegistro(origen.registro);
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }                                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         registro = registro + "Se imprimió" + "d.getNombre()" + "\n";
-        this.initTextRegistro(registro);
+        registro = "Se imprimió " + "d.getNombre() + d.getTipo()" + "\n";//Nuevo 
+        origen.registro += registro;
+        this.initTextRegistro(origen.registro);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }   //GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
