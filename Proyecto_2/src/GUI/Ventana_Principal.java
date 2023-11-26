@@ -21,7 +21,6 @@ public class Ventana_Principal extends javax.swing.JFrame {
     List users;
     List lista_docs;
     Heap heap;
-    String registros;
     /**
      * Creates new form Ventana_Principal
      */
@@ -31,11 +30,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
         this.tiempo = t;
         this.users = l;
         this.heap = heap;
-<<<<<<< HEAD
         this.lista_docs = lista_docs;
-=======
-        this.registros = registros;
->>>>>>> 0f9c51a1b78414ce07b5edbc3cd965d8ca395c96
         initComponents();
         initContent();
 //        this.setLocationRelativeTo(null);
@@ -307,7 +302,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Users_Content uc = new Users_Content(tiempo, users.mostrar_usuarios(), users, lista_docs, heap, this);
         ShowPanel(uc);
-        this.registros = x.registros;
+        
     }//GEN-LAST:event_BotonUsersActionPerformed
 
     private void BotonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonHomeActionPerformed
