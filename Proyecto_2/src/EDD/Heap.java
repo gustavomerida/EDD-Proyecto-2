@@ -161,11 +161,11 @@ public class Heap{
     public void Eliminar (String S){
         for (int i = 0; i <= getHeap().length; i++){
             if (S.equals(getHeap()[0].getNombre())){
-                getRoot();
+                getRootE();
                 sort();
             }
             else {
-                Documento x = this.getRoot();
+                Documento x = this.getRootE();
                 insert(x);
                 sort();
             }
