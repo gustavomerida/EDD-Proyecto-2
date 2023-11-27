@@ -85,6 +85,17 @@ public class Heap{
         ReordenarAbajo(position);
         return result;
     }
+
+
+    public Documento getRootE() {
+        //
+        if(isEmpty()){
+            return null;
+        }
+        Documento result = getHeap()[0];
+        heap[0] = getHeap()[position--];
+        return result;
+    }
     
     /**
      * Ordena el montúculo hacia abajo, comenzando desde la raíz.
