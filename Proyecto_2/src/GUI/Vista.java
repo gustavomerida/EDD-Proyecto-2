@@ -162,7 +162,7 @@ public class Vista extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        Documento s = heap.getRoot();
+        Documento s = heap.getRootE();
         heap.ReordenarArriba();
         registro = "Se imprimió " + s.getNombre() + s.getTipo()  + "\n";
         origen.registro += registro;
